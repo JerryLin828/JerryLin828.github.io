@@ -1,6 +1,6 @@
-# Jerry Lin - Personal Portfolio Website
+# Linrui Ma - Personal Portfolio Website
 
-A professional, modern personal portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features a stunning 3D hero section, smooth animations, and a fully functional blog system.
+A professional, modern personal portfolio website showcasing my work in AI, deep learning, and chemistry. Built with Next.js 14, TypeScript, and Tailwind CSS. Features a stunning 3D hero section, smooth animations, and highlights from my research at MIT CSAIL and achievements in international chemistry olympiads.
 
 ## Features
 
@@ -151,8 +151,9 @@ MIT License - feel free to use this for your own portfolio!
 
 For any questions or suggestions, please reach out:
 - GitHub: [@JerryLin828](https://github.com/JerryLin828)
-- Email: jerry@example.com
+- Email: linrui@mit.edu
+- Phone: (617) 256-8650
 
 ---
 
-Built with 💻 and ☕ by Jerry Lin
+Built with 💻 and ☕ by Linrui Ma
