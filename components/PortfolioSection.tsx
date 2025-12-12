@@ -20,70 +20,67 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.',
-    category: 'Full Stack',
-    technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'Tailwind CSS'],
+    title: 'SAPER: Structure-Aware Protein Function Framework',
+    description: 'Novel protein function annotation framework combining 3D structural information with sequence-based methods, achieving 114% performance improvement on Meta-BLEU-2. Uses multi-modal fusion of ProstT5 and ESM-2 embeddings.',
+    category: 'AI/ML',
+    technologies: ['Python', 'PyTorch', 'FAISS', 'Transformers', 'ProstT5', 'ESM-2'],
     image: '/images/project1.jpg',
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com',
+    githubUrl: 'https://github.com/winstonqian/SAPER',
     featured: true,
   },
   {
     id: 2,
-    title: 'AI Task Manager',
-    description: 'Smart task management app with AI-powered prioritization and natural language processing.',
+    title: 'Multilingual Mathematical Reasoning in Neural Networks',
+    description: 'Research on how representation choice affects neural reasoning efficiency in Transformers. Built evaluation framework testing SOTA models across GSM8K and MMATH in multiple languages, achieving 5-10% token efficiency gains.',
     category: 'AI/ML',
-    technologies: ['React', 'Python', 'OpenAI', 'FastAPI', 'MongoDB'],
+    technologies: ['Python', 'Transformers', 'LoRA', 'NumPy', 'Multi-tokenizer Analysis'],
     image: '/images/project2.jpg',
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com',
+    githubUrl: 'https://github.com/bowenyu066/language-shapes-reasoning',
     featured: true,
   },
   {
     id: 3,
-    title: 'Real-time Analytics Dashboard',
-    description: 'Interactive dashboard for monitoring business metrics with real-time data visualization.',
-    category: 'Data Visualization',
-    technologies: ['Vue.js', 'D3.js', 'WebSocket', 'Node.js', 'Redis'],
+    title: 'Labotex: AI-Powered Lab Report Generator',
+    description: 'Intelligent agent that streamlines LaTeX lab report generation from raw data. Integrates VLMs and chat models to convert experiment PDFs and CSV datasets into structured scientific reports.',
+    category: 'Full Stack',
+    technologies: ['Python', 'LaTeX', 'VLMs', 'NumPy', 'Web UI', 'PDF Processing'],
     image: '/images/project3.jpg',
-    githubUrl: 'https://github.com',
-    featured: false,
+    githubUrl: 'https://github.com/Kehan-Liu/LABOTEX',
+    featured: true,
   },
   {
     id: 4,
-    title: 'Mobile Banking App',
-    description: 'Secure mobile banking application with biometric authentication and transaction history.',
-    category: 'Mobile',
-    technologies: ['React Native', 'TypeScript', 'Firebase', 'Plaid API'],
+    title: 'High-Performance Matrix Multiplication System',
+    description: 'Designed and implemented high-speed matrix multiplication in C with cache optimization, vectorization, and multi-threading. Added distributed RPC support for cross-machine computation.',
+    category: 'Systems',
+    technologies: ['C/C++', 'SIMD', 'Multithreading', 'RPC', 'Cache Optimization'],
     image: '/images/project4.jpg',
     githubUrl: 'https://github.com',
     featured: false,
   },
   {
     id: 5,
-    title: 'Cloud Infrastructure Automation',
-    description: 'Infrastructure as Code solution for automated cloud deployment and management.',
-    category: 'DevOps',
-    technologies: ['Terraform', 'AWS', 'Docker', 'Kubernetes', 'GitHub Actions'],
+    title: 'Deep Learning for Cellular Perturbations',
+    description: 'Research at MIT CSAIL designing deep learning models to predict cell state changes in response to various cellular perturbations, working under Prof. Regina Barzilay.',
+    category: 'Research',
+    technologies: ['PyTorch', 'Deep Learning', 'Bioinformatics', 'Single-cell Analysis'],
     image: '/images/project5.jpg',
     githubUrl: 'https://github.com',
     featured: true,
   },
   {
     id: 6,
-    title: 'Social Media Analytics Tool',
-    description: 'Platform for analyzing social media engagement and generating insights.',
-    category: 'Full Stack',
-    technologies: ['Next.js', 'GraphQL', 'PostgreSQL', 'Chart.js'],
+    title: 'Chemistry Olympiad Training Platform',
+    description: 'Educational platform and resources developed for Beijing CChO Training Team, including lecture materials on advanced chemistry topics, problem sets, and interactive demonstrations.',
+    category: 'Education',
+    technologies: ['Chemistry', 'Teaching', 'Problem Design', 'Educational Content'],
     image: '/images/project6.jpg',
     githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com',
     featured: false,
   },
 ]
 
-const categories = ['All', 'Full Stack', 'AI/ML', 'Mobile', 'DevOps', 'Data Visualization']
+const categories = ['All', 'AI/ML', 'Full Stack', 'Systems', 'Research', 'Education']
 
 export default function PortfolioSection() {
   const [selectedCategory, setSelectedCategory] = useState('All')
@@ -162,9 +159,9 @@ export default function PortfolioSection() {
                   <div className="text-white text-6xl opacity-20">
                     {project.category === 'AI/ML' && '🤖'}
                     {project.category === 'Full Stack' && '💻'}
-                    {project.category === 'Mobile' && '📱'}
-                    {project.category === 'DevOps' && '⚙️'}
-                    {project.category === 'Data Visualization' && '📊'}
+                    {project.category === 'Systems' && '⚙️'}
+                    {project.category === 'Research' && '🔬'}
+                    {project.category === 'Education' && '📚'}
                   </div>
                 </div>
 

@@ -30,20 +30,22 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-5xl sm:text-6xl md:text-7xl font-bold text-neutral-900 dark:text-white"
         >
-          Jerry Lin
+          Linrui Ma
         </motion.h1>
 
         {/* Animated Role */}
         <div className="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-700 dark:text-neutral-300">
           <TypeAnimation
             sequence={[
-              'Software Engineer',
+              'MIT Student',
               2000,
-              'Full Stack Developer',
+              'AI Researcher',
+              2000,
+              'Chemistry Olympiad Gold Medalist',
+              2000,
+              'Deep Learning Engineer',
               2000,
               'Problem Solver',
-              2000,
-              'Tech Enthusiast',
               2000,
             ]}
             wrapper="span"
@@ -59,8 +61,8 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="max-w-2xl mx-auto text-lg text-neutral-600 dark:text-neutral-400"
         >
-          Passionate about creating innovative solutions and building exceptional digital experiences
-          with modern technologies. Specializing in web development, cloud architecture, and AI integration.
+          Double majoring in AI & Decision Making and Chemistry at MIT. Passionate about leveraging
+          deep learning for scientific discovery, with research experience at MIT CSAIL under Prof. Regina Barzilay.
         </motion.p>
 
         {/* CTA Buttons */}

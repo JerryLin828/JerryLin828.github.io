@@ -4,7 +4,7 @@ const socialLinks = [
   { name: 'GitHub', href: 'https://github.com/JerryLin828', icon: 'github' },
   { name: 'LinkedIn', href: 'https://linkedin.com/', icon: 'linkedin' },
   { name: 'Twitter', href: 'https://twitter.com/', icon: 'twitter' },
-  { name: 'Email', href: 'mailto:jerry@example.com', icon: 'email' },
+  { name: 'Email', href: 'mailto:linrui@mit.edu', icon: 'email' },
 ]
 
 const footerLinks = [
@@ -23,12 +23,12 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">JL</span>
+                <span className="text-white font-bold text-xl">LM</span>
               </div>
-              <span className="font-semibold text-xl">Jerry Lin</span>
+              <span className="font-semibold text-xl">Linrui Ma</span>
             </div>
             <p className="text-neutral-600 dark:text-neutral-400">
-              Building exceptional digital experiences with modern technologies.
+              MIT student exploring the intersection of AI and chemistry for scientific discovery.
             </p>
           </div>
 
@@ -90,7 +90,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-800 text-center">
           <p className="text-neutral-600 dark:text-neutral-400">
-            © {new Date().getFullYear()} Jerry Lin. All rights reserved.
+            © {new Date().getFullYear()} Linrui Ma. All rights reserved.
           </p>
         </div>
       </div>

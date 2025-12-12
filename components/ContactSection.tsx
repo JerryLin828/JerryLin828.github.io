@@ -44,19 +44,19 @@ export default function ContactSection() {
     {
       icon: '📧',
       title: 'Email',
-      value: 'jerry@example.com',
-      link: 'mailto:jerry@example.com',
+      value: 'linrui@mit.edu',
+      link: 'mailto:linrui@mit.edu',
     },
     {
       icon: '📱',
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '+1 (617) 256-8650',
+      link: 'tel:+16172568650',
     },
     {
       icon: '📍',
       title: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Cambridge, MA',
       link: '#',
     },
   ]
@@ -294,9 +294,9 @@ export default function ContactSection() {
                 <div className="absolute w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
               </div>
               <div>
-                <h4 className="font-semibold">Currently Available</h4>
+                <h4 className="font-semibold">Open to Collaboration</h4>
                 <p className="text-white/90 text-sm">
-                  Open to new opportunities and freelance projects
+                  Available for research collaborations and AI/ML projects
                 </p>
               </div>
             </div>

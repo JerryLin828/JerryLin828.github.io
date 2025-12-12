@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import HeroSection from '@/components/HeroSection'
 import PortfolioSection from '@/components/PortfolioSection'
 import ExperienceSection from '@/components/ExperienceSection'
+import AwardsSection from '@/components/AwardsSection'
 import ContactSection from '@/components/ContactSection'
 import BlogPreview from '@/components/BlogPreview'
 
@@ -42,13 +43,18 @@ export default function HomePage() {
         <ExperienceSection />
       </section>
 
+      {/* Awards Section */}
+      <section id="awards" className="py-20 bg-white dark:bg-neutral-900">
+        <AwardsSection />
+      </section>
+
       {/* Blog Preview Section */}
-      <section id="blog" className="py-20 bg-white dark:bg-neutral-900">
+      <section id="blog" className="py-20 bg-neutral-50 dark:bg-neutral-950">
         <BlogPreview />
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-neutral-50 dark:bg-neutral-950">
+      <section id="contact" className="py-20 bg-white dark:bg-neutral-900">
         <ContactSection />
       </section>
     </div>

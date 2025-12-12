@@ -7,24 +7,24 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Jerry Lin - Personal Portfolio',
-  description: 'Professional portfolio showcasing projects, experience, and blog posts',
-  keywords: ['portfolio', 'web developer', 'software engineer', 'Jerry Lin'],
-  authors: [{ name: 'Jerry Lin' }],
-  creator: 'Jerry Lin',
+  title: 'Linrui Ma - Personal Portfolio',
+  description: 'MIT student double majoring in AI & Chemistry, IChO Gold Medalist, AI Researcher at MIT CSAIL',
+  keywords: ['portfolio', 'MIT', 'AI research', 'deep learning', 'chemistry', 'Linrui Ma', 'CSAIL', 'IChO', 'Tsinghua'],
+  authors: [{ name: 'Linrui Ma' }],
+  creator: 'Linrui Ma',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://jerrylin828.github.io',
-    title: 'Jerry Lin - Personal Portfolio',
-    description: 'Professional portfolio showcasing projects, experience, and blog posts',
-    siteName: 'Jerry Lin Portfolio',
+    title: 'Linrui Ma - Personal Portfolio',
+    description: 'MIT student double majoring in AI & Chemistry, IChO Gold Medalist, AI Researcher at MIT CSAIL',
+    siteName: 'Linrui Ma Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jerry Lin - Personal Portfolio',
-    description: 'Professional portfolio showcasing projects, experience, and blog posts',
-    creator: '@jerrylin', // Replace with your Twitter handle
+    title: 'Linrui Ma - Personal Portfolio',
+    description: 'MIT student double majoring in AI & Chemistry, IChO Gold Medalist, AI Researcher at MIT CSAIL',
+    creator: '@linruima', // Replace with your Twitter handle
   },
   robots: {
     index: true,

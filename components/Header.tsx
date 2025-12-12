@@ -42,9 +42,9 @@ export default function Header() {
           >
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">JL</span>
+                <span className="text-white font-bold text-xl">LM</span>
               </div>
-              <span className="font-semibold text-xl hidden sm:block">Jerry Lin</span>
+              <span className="font-semibold text-xl hidden sm:block">Linrui Ma</span>
             </Link>
           </motion.div>
 
