@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Playfair_Display } from 'next/font/google'
+
+const playfair = Playfair_Display({ subsets: ['latin'], style: ['italic'] })
 
 export default function HeroSection() {
   return (
@@ -22,20 +25,13 @@ export default function HeroSection() {
 
             {/* Profile image container */}
             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-neutral-800 shadow-2xl">
-              {/* Placeholder for profile image - replace with your actual photo */}
-              <div className="w-full h-full bg-gradient-to-br from-primary-200 to-secondary-200 flex items-center justify-center">
-                <span className="text-6xl md:text-7xl text-white font-bold">LM</span>
-              </div>
-              {/*
-                To add your photo, uncomment this and add your image to public/images/
-                <Image
-                  src="/images/profile.jpg"
-                  alt="Linrui Ma"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              */}
+              <Image
+                src="/images/profile.jpg"
+                alt="Linrui Ma"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </motion.div>
@@ -54,47 +50,22 @@ export default function HeroSection() {
 
           {/* Title/Role */}
           <p className="text-2xl md:text-3xl text-primary-600 dark:text-primary-400 font-medium mb-6">
-            MIT Student • AI Researcher • Chemistry Olympiad Champion
+            MIT Student • ML/AI Researcher • IChO Gold Medalist
+          </p>
+
+          {/* Tagline */}
+          <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+            <em className={`${playfair.className} text-xl`}>
+              I&apos;m curious about the <span className="text-primary-600 dark:text-primary-400">chemistry of intelligence</span>, and the <span className="text-primary-600 dark:text-primary-400">intelligence behind chemistry</span>.
+            </em>
           </p>
 
           {/* Short Bio */}
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-            Double majoring in AI & Decision Making and Chemistry at MIT with a perfect GPA.
-            Conducting cutting-edge research at MIT CSAIL under Prof. Regina Barzilay on deep learning
-            models for cellular perturbations. International Chemistry Olympiad gold medalist (12th globally)
-            and passionate educator with 100+ hours teaching advanced chemistry.
+          <p className="text-base text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+            Undergraduate at MIT double majoring in AI &amp; Decision Making and Chemistry (GPA: 5.0/5.0).
+            My work spans deep learning for biology, computer vision, and AI for science: from cellular
+            perturbation modeling to pixel-space image editing. IChO gold medalist and captain of China&apos;s national team.
           </p>
-
-          {/* Quick Stats */}
-          <div className="flex flex-wrap gap-6 mb-8 justify-center lg:justify-start">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-center"
-            >
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">5.0</div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">MIT GPA</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-center"
-            >
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">12th</div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">IChO Global</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-center"
-            >
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">4+</div>
-              <div className="text-sm text-neutral-600 dark:text-neutral-400">AI Projects</div>
-            </motion.div>
-          </div>
 
           {/* CTA Buttons */}
           <motion.div
@@ -105,20 +76,20 @@ export default function HeroSection() {
           >
             <Link
               href="#portfolio"
-              className="px-8 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl"
+              className="px-8 py-3 bg-primary-500/20 hover:bg-primary-500/30 text-primary-700 dark:text-primary-300 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl border border-primary-300/40 dark:border-primary-600/30"
             >
               View My Projects
             </Link>
             <Link
               href="#contact"
-              className="px-8 py-3 bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-600 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl"
+              className="px-8 py-3 bg-neutral-500/10 hover:bg-neutral-500/20 text-neutral-700 dark:text-neutral-300 border border-neutral-300/50 dark:border-neutral-600/30 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl"
             >
               Get In Touch
             </Link>
             <a
               href="/resume.pdf"
               download
-              className="px-8 py-3 bg-secondary-600 hover:bg-secondary-700 text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl"
+              className="px-8 py-3 bg-secondary-500/20 hover:bg-secondary-500/30 text-secondary-700 dark:text-secondary-300 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl border border-secondary-300/40 dark:border-secondary-600/30"
             >
               Download CV
             </a>
@@ -126,33 +97,9 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="text-neutral-500 dark:text-neutral-400"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </motion.div>
-      </motion.div>
+      <div className="mt-8 text-center text-sm text-neutral-400 dark:text-neutral-500 font-mono">
+        Last updated March 23, 2026
+      </div>
     </div>
   )
 }

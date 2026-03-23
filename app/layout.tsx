@@ -43,7 +43,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100`}>
+      <body className={`${inter.className} bg-neutral-50 dark:bg-[#050510] text-neutral-900 dark:text-neutral-100`}>
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">

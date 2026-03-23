@@ -16,6 +16,21 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
+    id: 0,
+    title: 'Undergraduate Researcher',
+    company: 'MIT — Prof. Kaiming He\'s Group',
+    location: 'Cambridge, MA',
+    period: 'Feb 2026 - Present',
+    description: [
+      'Adapting the "Just Image Transformers" (JiT) framework for text-guided image editing in raw pixel space',
+      'Integrating a pre-trained T5 encoder with cross-attention applied directly to pixel-space tokens',
+      'Bypassing latent bottlenecks (VAEs) to achieve high-fidelity editing that preserves fine-grained image details',
+      'Collaboratively designing experiments, fine-tuning the model, and evaluating outputs against relevant baselines',
+    ],
+    technologies: ['PyTorch', 'Transformers', 'Diffusion Models', 'Computer Vision', 'T5'],
+    type: 'work',
+  },
+  {
     id: 1,
     title: 'Undergraduate Researcher',
     company: 'MIT Computer Science and Artificial Intelligence Lab (CSAIL)',
@@ -24,7 +39,7 @@ const experiences: Experience[] = [
     description: [
       'Collaborating with Ph.D. candidates under Prof. Regina Barzilay\'s supervision',
       'Designing deep learning models to predict cell state changes in response to cellular perturbations',
-      'Working on cutting-edge bioinformatics and computational biology research',
+      'Developing probabilistic models for selective protein binder design',
       'Applying AI techniques to advance medical and biological understanding',
     ],
     technologies: ['PyTorch', 'Deep Learning', 'Bioinformatics', 'Single-cell Analysis', 'Python'],
@@ -40,7 +55,6 @@ const experiences: Experience[] = [
       'GPA: 5.0/5.0',
       'Core Courses: Deep Learning; Algorithms; AI & Decision Making in Medicine; Biological Chemistry',
       'Pursuing interdisciplinary education at the intersection of AI and chemistry',
-      'Member of MIT CSAIL research group',
     ],
     technologies: ['Deep Learning', 'Algorithms', 'AI in Medicine', 'Biological Chemistry'],
     type: 'education',
@@ -54,41 +68,10 @@ const experiences: Experience[] = [
     description: [
       'GPA: 3.87/4.00',
       'Majoring in Computer Science and Artificial Intelligence in prestigious Yao Class',
-      'Core Courses: Linear Algebra, C/C++ Programming, AI Principles & Techniques, Mathematics for CS & AI',
-      'Computer Systems, Introduction to LLM Applications',
+      'Core Courses: Linear Algebra, C/C++ Programming, AI Principles & Techniques, Mathematics for CS & AI, Computer Systems, Introduction to LLM Applications',
     ],
     technologies: ['C/C++', 'AI/ML', 'Computer Systems', 'LLM Applications', 'Mathematics'],
     type: 'education',
-  },
-  {
-    id: 4,
-    title: 'Chemistry Instructor',
-    company: 'Beijing Training Team for Chinese Chemistry Olympiad (CChO)',
-    location: 'Beijing, China',
-    period: 'May 2024 - Present',
-    description: [
-      'Delivered over 100 hours of lectures on advanced chemistry topics',
-      'Taught subjects including advanced organic chemistry, thermodynamics, and biochemistry',
-      'Prepared students for national and international chemistry competitions',
-      'Developed comprehensive training materials and problem sets',
-    ],
-    technologies: ['Chemistry', 'Teaching', 'Organic Chemistry', 'Thermodynamics', 'Biochemistry'],
-    type: 'work',
-  },
-  {
-    id: 5,
-    title: 'President',
-    company: 'RDFZ Chemistry Club',
-    location: 'Beijing, China',
-    period: 'Aug 2021 - Aug 2023',
-    description: [
-      'Led the high school\'s chemistry club as president',
-      'Organized interschool Olympiad exams and competitions',
-      'Conducted interactive chemistry demonstrations and hands-on experiments',
-      'Promoted interest in chemistry among students through engaging activities',
-    ],
-    technologies: ['Leadership', 'Chemistry', 'Event Organization', 'Education'],
-    type: 'work',
   },
 ]
 
@@ -108,31 +91,24 @@ export default function ExperienceSection() {
         transition={{ duration: 0.5 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
           Experience & Education
         </h2>
-        <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          My professional journey and academic background
-        </p>
       </motion.div>
 
       {/* Timeline */}
       <div ref={ref} className="relative max-w-4xl mx-auto">
         {/* Vertical Line */}
-        <motion.div
-          initial={{ height: 0 }}
-          animate={inView ? { height: '100%' } : { height: 0 }}
-          transition={{ duration: 1.5, ease: 'easeInOut' }}
-          className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500"
-          style={{ top: 0 }}
+        <div
+          className="absolute left-[2.125rem] md:left-1/2 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500 top-0 bottom-0 -translate-x-1/2"
         />
 
         {/* Experience Items */}
         {experiences.map((exp, index) => (
           <motion.div
             key={exp.id}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className={`relative flex items-center mb-8 ${
@@ -140,22 +116,17 @@ export default function ExperienceSection() {
             }`}
           >
             {/* Timeline Dot */}
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
-              className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center"
+            <div
+              className="absolute left-[2.125rem] md:left-1/2 -translate-x-1/2 z-10"
             >
-              <div className="w-4 h-4 bg-white dark:bg-neutral-900 border-4 border-primary-500 rounded-full" />
-              <div className="absolute w-8 h-8 bg-primary-500/20 rounded-full animate-ping" />
-            </motion.div>
+              <div className="w-4 h-4 bg-white dark:bg-[#0a0a12] border-4 border-primary-500 rounded-full" />
+            </div>
 
             {/* Content Card */}
             <div className={`ml-20 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-white dark:bg-neutral-900 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-[#111118] rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
               >
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">

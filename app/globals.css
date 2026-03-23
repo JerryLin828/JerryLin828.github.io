@@ -9,14 +9,14 @@
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: 240 20% 3.5%;
     --foreground: 210 20% 98%;
   }
 }
 
 @layer base {
   body {
-    @apply bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100;
+    @apply bg-white dark:bg-[#050510] text-neutral-900 dark:text-neutral-100;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 

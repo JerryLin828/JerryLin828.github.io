@@ -6,15 +6,21 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const navItems = [
   { name: 'Home', href: '/' },
+  { name: 'About', href: '#about' },
   { name: 'Portfolio', href: '#portfolio' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'Awards', href: '#awards' },
   { name: 'Contact', href: '#contact' },
 ]
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDark, setIsDark] = useState(false)
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'))
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +34,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg shadow-lg'
+          ? 'bg-white/80 dark:bg-[#0a0a12]/80 backdrop-blur-lg shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -40,12 +46,41 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">LM</span>
-              </div>
-              <span className="font-semibold text-xl hidden sm:block">Linrui Ma</span>
-            </Link>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={() => {
+                  const html = document.documentElement
+                  html.style.transition = 'background-color 0.6s ease, color 0.6s ease'
+                  document.querySelectorAll('*').forEach((el) => {
+                    const htmlEl = el as HTMLElement
+                    htmlEl.style.transition = (htmlEl.style.transition ? htmlEl.style.transition + ', ' : '') + 'background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease'
+                  })
+                  html.classList.toggle('dark')
+                  setIsDark(html.classList.contains('dark'))
+                  setTimeout(() => {
+                    html.style.transition = ''
+                    document.querySelectorAll('*').forEach((el) => {
+                      (el as HTMLElement).style.transition = ''
+                    })
+                  }, 700)
+                }}
+                className="w-9 h-9 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                aria-label="Toggle dark mode"
+              >
+                {isDark ? (
+                  <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5 text-neutral-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                  </svg>
+                )}
+              </button>
+              <Link href="/" className="font-semibold text-xl">
+                Linrui Ma
+              </Link>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -117,7 +152,7 @@ export default function Header() {
               transition={{ duration: 0.3 }}
               className="md:hidden"
             >
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-neutral-900 rounded-lg mt-2">
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-[#0a0a12] rounded-lg mt-2">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
