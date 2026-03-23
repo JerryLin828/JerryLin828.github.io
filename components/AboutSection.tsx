@@ -10,7 +10,7 @@ export default function AboutSection() {
   })
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto px-6 sm:px-8 lg:px-8">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}

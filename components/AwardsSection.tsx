@@ -35,7 +35,7 @@ const awards = [
 
 export default function AwardsSection() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto px-6 sm:px-8 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -56,14 +56,16 @@ export default function AwardsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: index * 0.05 }}
-            className="flex items-baseline gap-4 bg-white dark:bg-[#111118] rounded-lg px-5 py-3 shadow-sm hover:shadow-md transition-shadow"
+            className="bg-white dark:bg-[#111118] rounded-lg px-4 sm:px-5 py-3 shadow-sm hover:shadow-md transition-shadow"
           >
-            <span className="text-lg">{award.icon}</span>
-            <span className="text-sm text-neutral-400 dark:text-neutral-500 whitespace-nowrap">{award.date}</span>
-            <div className="min-w-0">
-              <span className="font-medium text-neutral-900 dark:text-white text-sm">{award.title}</span>
-              <span className="text-neutral-500 dark:text-neutral-400 text-sm"> — {award.description}</span>
+            <div className="flex items-center gap-2 sm:gap-4">
+              <span className="text-lg">{award.icon}</span>
+              <span className="text-xs sm:text-sm text-neutral-400 dark:text-neutral-500 whitespace-nowrap">{award.date}</span>
+              <div className="min-w-0">
+                <span className="font-medium text-neutral-900 dark:text-white text-xs sm:text-sm">{award.title}</span>
+              </div>
             </div>
+            <p className="text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm mt-1 ml-8 sm:ml-12">{award.description}</p>
           </motion.div>
         ))}
       </div>

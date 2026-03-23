@@ -9,8 +9,8 @@ const playfair = Playfair_Display({ subsets: ['latin'], style: ['italic'] })
 
 export default function HeroSection() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+    <div className="container mx-auto px-6 sm:px-8 lg:px-8">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
         {/* Profile Image */}
         <motion.div
@@ -19,7 +19,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5 }}
           className="lg:w-1/3"
         >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 mx-auto">
             {/* Decorative ring */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full animate-pulse opacity-20 blur-xl" />
 
@@ -44,24 +44,24 @@ export default function HeroSection() {
           className="lg:w-2/3 text-center lg:text-left"
         >
           {/* Name */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-neutral-900 dark:text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-neutral-900 dark:text-white mb-3">
             Linrui Ma
           </h1>
 
           {/* Title/Role */}
-          <p className="text-2xl md:text-3xl text-primary-600 dark:text-primary-400 font-medium mb-6">
+          <p className="text-lg sm:text-2xl md:text-3xl text-primary-600 dark:text-primary-400 font-medium mb-4 sm:mb-6">
             MIT Student • ML/AI Researcher • IChO Gold Medalist
           </p>
 
           {/* Tagline */}
           <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-            <em className={`${playfair.className} text-xl`}>
+            <em className={`${playfair.className} text-base sm:text-xl`}>
               I&apos;m curious about the <span className="text-primary-600 dark:text-primary-400">chemistry of intelligence</span>, and the <span className="text-primary-600 dark:text-primary-400">intelligence behind chemistry</span>.
             </em>
           </p>
 
           {/* Short Bio */}
-          <p className="text-base text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+          <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-6 sm:mb-8 leading-relaxed">
             Undergraduate at MIT double majoring in AI &amp; Decision Making and Chemistry (GPA: 5.0/5.0).
             My work spans deep learning for biology, computer vision, and AI for science: from cellular
             perturbation modeling to pixel-space image editing. IChO gold medalist and captain of China&apos;s national team.
@@ -76,20 +76,20 @@ export default function HeroSection() {
           >
             <Link
               href="#portfolio"
-              className="px-8 py-3 bg-primary-500/20 hover:bg-primary-500/30 text-primary-700 dark:text-primary-300 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl border border-primary-300/40 dark:border-primary-600/30"
+              className="px-6 sm:px-8 py-3 bg-primary-500/20 hover:bg-primary-500/30 text-primary-700 dark:text-primary-300 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl border border-primary-300/40 dark:border-primary-600/30 text-sm sm:text-base"
             >
               View My Projects
             </Link>
             <Link
               href="#contact"
-              className="px-8 py-3 bg-neutral-500/10 hover:bg-neutral-500/20 text-neutral-700 dark:text-neutral-300 border border-neutral-300/50 dark:border-neutral-600/30 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl"
+              className="px-6 sm:px-8 py-3 bg-neutral-500/10 hover:bg-neutral-500/20 text-neutral-700 dark:text-neutral-300 border border-neutral-300/50 dark:border-neutral-600/30 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl text-sm sm:text-base"
             >
               Get In Touch
             </Link>
             <a
               href="/resume.pdf"
               download
-              className="px-8 py-3 bg-secondary-500/20 hover:bg-secondary-500/30 text-secondary-700 dark:text-secondary-300 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl border border-secondary-300/40 dark:border-secondary-600/30"
+              className="px-6 sm:px-8 py-3 bg-secondary-500/20 hover:bg-secondary-500/30 text-secondary-700 dark:text-secondary-300 font-medium rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl border border-secondary-300/40 dark:border-secondary-600/30 text-sm sm:text-base"
             >
               Download CV
             </a>

@@ -51,7 +51,7 @@ const contactLinks = [
 
 export default function ContactSection() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto px-6 sm:px-8 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -81,9 +81,9 @@ export default function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="group flex items-center gap-4 p-4 bg-white dark:bg-[#111118] rounded-xl shadow-sm hover:shadow-lg border border-neutral-100 dark:border-neutral-800 hover:border-primary-200 dark:hover:border-primary-800 transition-all duration-200 hover:-translate-y-0.5"
+              className="group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white dark:bg-[#111118] rounded-xl shadow-sm hover:shadow-lg border border-neutral-100 dark:border-neutral-800 hover:border-primary-200 dark:hover:border-primary-800 transition-all duration-200 hover:-translate-y-0.5"
             >
-              <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-neutral-50 dark:bg-neutral-800 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 flex items-center justify-center text-neutral-500 dark:text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              <div className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-neutral-50 dark:bg-neutral-800 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 flex items-center justify-center text-neutral-500 dark:text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                 {link.icon}
               </div>
               <div className="min-w-0">

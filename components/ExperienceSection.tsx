@@ -82,7 +82,7 @@ export default function ExperienceSection() {
   })
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto px-6 sm:px-8 lg:px-8">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export default function ExperienceSection() {
       <div ref={ref} className="relative max-w-4xl mx-auto">
         {/* Vertical Line */}
         <div
-          className="absolute left-[2.125rem] md:left-1/2 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500 top-0 bottom-0 -translate-x-1/2"
+          className="absolute left-[1.25rem] sm:left-[2.125rem] md:left-1/2 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500 top-0 bottom-0 -translate-x-1/2"
         />
 
         {/* Experience Items */}
@@ -117,32 +117,32 @@ export default function ExperienceSection() {
           >
             {/* Timeline Dot */}
             <div
-              className="absolute left-[2.125rem] md:left-1/2 -translate-x-1/2 z-10"
+              className="absolute left-[1.25rem] sm:left-[2.125rem] md:left-1/2 -translate-x-1/2 z-10"
             >
               <div className="w-4 h-4 bg-white dark:bg-[#0a0a12] border-4 border-primary-500 rounded-full" />
             </div>
 
             {/* Content Card */}
-            <div className={`ml-20 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+            <div className={`ml-12 sm:ml-20 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="bg-white dark:bg-[#111118] rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-[#111118] rounded-xl shadow-lg p-4 sm:p-6 hover:shadow-xl transition-all duration-300"
               >
                 {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
+                <div className="flex items-start justify-between gap-2 mb-3 sm:mb-4">
+                  <div className="min-w-0">
+                    <h3 className="text-base sm:text-xl font-semibold text-neutral-900 dark:text-white">
                       {exp.title}
                     </h3>
-                    <p className="text-primary-600 dark:text-primary-400 font-medium">
+                    <p className="text-sm sm:text-base text-primary-600 dark:text-primary-400 font-medium">
                       {exp.company}
                     </p>
-                    <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                    <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400">
                       {exp.location} • {exp.period}
                     </p>
                   </div>
                   <div
-                    className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                    className={`flex-shrink-0 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold ${
                       exp.type === 'work'
                         ? 'bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300'
                         : 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300'
