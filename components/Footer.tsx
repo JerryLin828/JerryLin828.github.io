@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const socialLinks = [
   { name: 'GitHub', href: 'https://github.com/JerryLin828', icon: 'github' },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/linrui-ma-290313382', icon: 'linkedin' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/linrui-ma', icon: 'linkedin' },
   { name: 'Email', href: 'mailto:linrui@mit.edu', icon: 'email' },
 ]
 

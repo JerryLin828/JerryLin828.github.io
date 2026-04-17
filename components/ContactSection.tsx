@@ -27,7 +27,7 @@ const contactLinks = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/linrui-ma-290313382',
+    href: 'https://www.linkedin.com/in/linrui-ma',
     label: 'Linrui Ma',
     description: 'Let\'s connect',
     icon: (
