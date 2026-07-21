@@ -98,7 +98,7 @@ export default function HeroSection() {
       </div>
 
       <div className="mt-8 text-center text-sm text-neutral-400 dark:text-neutral-500 font-mono">
-        Last updated March 23, 2026
+        Last updated July 21, 2026
       </div>
     </div>
   )

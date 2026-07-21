@@ -10,8 +10,7 @@ interface Publication {
   authors: ReactNode
   footnote?: string
   acceptance?: string
-  linkLabel: string
-  linkUrl: string
+  links: { label: string; url: string }[]
   description: string
 }
 
@@ -25,10 +24,9 @@ const publications: Publication[] = [
         Linrui Ma<sup>*</sup>, Yiwei Liang<sup>*</sup>, Yishu Yu<sup>**</sup>, Chuhan Joyce Qi<sup>**</sup>
       </>
     ),
-    footnote: '(* /** equal contrib.)',
+    footnote: '* Shared first authorship. ** Shared second authorship.',
     acceptance: 'ICML 2026 GenBio Workshop (Spotlight); ICML 2026 FM4LS Workshop (Poster).',
-    linkLabel: 'Link to paper',
-    linkUrl: 'https://openreview.net/forum?id=zUqknDsV1t',
+    links: [{ label: 'Link to paper', url: 'https://openreview.net/forum?id=zUqknDsV1t' }],
     description:
       'First-authored RAG framework that pairs structure-aware retrieval with a query-conditioned contrastive retriever (FiLM + query-pooled negatives), reframing protein function annotation as query-dependent sequence understanding; Entity-BLEU 48.79 (+37% vs RAPM) on Prot-Inst-OOD.',
   },
@@ -42,10 +40,14 @@ const publications: Publication[] = [
       </>
     ),
     footnote: '(† project lead; ‡ core contributor; § supervisor)',
-    linkLabel: 'Link to blog',
-    linkUrl: 'https://peppaking8.github.io/#/post/minit2i',
+    links: [
+      { label: 'Blog', url: 'https://peppaking8.github.io/#/post/minit2i' },
+      { label: 'PyTorch', url: 'https://github.com/Hope7Happiness/minit2i-torch' },
+      { label: 'JAX', url: 'https://github.com/PeppaKing8/minit2i-jax' },
+      { label: 'Hugging Face', url: 'https://huggingface.co/MiniT2I/MiniT2I' },
+    ],
     description:
-      'Academic-scale pixel-space T2I baseline (MM-JiT). Contributed the LoRA downstream-adaptation extension—fine-tuning on small style datasets (e.g., Naruto/Pokémon) and producing the adaptation artifacts—and contributed code/notebooks to the public PyTorch release.',
+      'Academic-scale pixel-space T2I baseline (MM-JiT). Contributed the LoRA downstream-adaptation extension (fine-tuning on small style datasets such as Naruto/Pokemon and producing the adaptation artifacts) and contributed code/notebooks to the public PyTorch release.',
   },
 ]
 
@@ -93,17 +95,22 @@ export default function PublicationsSection() {
                 {pub.acceptance}
               </p>
             )}
-            <a
-              href={pub.linkUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium text-sm mb-3 transition-colors"
-            >
-              {pub.linkLabel}
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 mb-3">
+              {pub.links.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium text-sm transition-colors"
+                >
+                  {link.label}
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              ))}
+            </div>
             <p className="text-neutral-600 dark:text-neutral-400 text-sm flex-grow">
               {pub.description}
             </p>

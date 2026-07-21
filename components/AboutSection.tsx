@@ -43,7 +43,7 @@ export default function AboutSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed mb-6">
-              This summer I am an SDE Intern at Amazon Web Services on AWS Transform, building model-comparison infrastructure for an LLM-based migration orchestrator.
+              This summer I am an SDE Intern at Amazon on AWS Transform, building model-comparison infrastructure for an LLM-based migration orchestrator.
               In research, I work with Prof. Kaiming He on pixel-space generative models (MiniT2I / image editing, LoRA adaptation, and GCS dataset pipelines), and with Prof. Regina Barzilay at MIT CSAIL on cell-state prediction and probabilistic models for selective protein binder design. My first-authored work ProtQueSt was accepted as a Spotlight at the ICML 2026 GenBio workshop and as a poster at FM4LS.
             </p>
           </motion.div>

@@ -18,13 +18,13 @@ const experiences: Experience[] = [
   {
     id: 0,
     title: 'Software Development Engineer Intern',
-    company: 'Amazon Web Services — AWS Transform',
+    company: 'AWS Transform, Amazon',
     location: 'Boston, MA',
     period: 'Jun 2026 - Present',
     description: [
-      'Building model-comparison infrastructure for the LLM-based orchestrator behind AWS Transform\'s VMware migration workflows (Strands + Amazon Bedrock)',
-      'Designing automated evaluation scenarios and CloudWatch metrics across latency/cost, tool-calling, and reliability for data-driven model selection',
-      'Implementing the pipeline in Python and TypeScript; owning the feature end-to-end under SDE I mentorship',
+      'Building model-comparison infrastructure for the LLM-based orchestrator behind AWS Transform\'s VMware migration workflows',
+      'Designing automated evaluation scenarios and CloudWatch metrics across latency/cost, tool-calling, and reliability so model selection can be data-driven',
+      'Implementing the pipeline in Python and TypeScript (feature owned end-to-end under SDE I mentorship)',
     ],
     technologies: ['Python', 'TypeScript', 'Amazon Bedrock', 'CloudWatch', 'AWS'],
     type: 'work',
@@ -32,7 +32,7 @@ const experiences: Experience[] = [
   {
     id: 1,
     title: 'Undergraduate Researcher',
-    company: 'MIT — Prof. Kaiming He\'s Group',
+    company: 'MIT - Prof. Kaiming He\'s Group',
     location: 'Cambridge, MA',
     period: 'Feb 2026 - Present',
     description: [
