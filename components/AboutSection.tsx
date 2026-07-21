@@ -43,10 +43,8 @@ export default function AboutSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed mb-6">
-              With a genuine passion for machine learning research, I have been conducting research on a variety of topics, including computer vision and AI for science. I am currently working under the supervision of Prof. Kaiming He on adapting the Just Image Transformers (JiT) framework
-              for text-guided image editing directly in pixel space.
-              
-              I have also worked with Prof. Regina Barzilay at MIT CSAIL on salience-regularized optimal transport cell state change prediction, and recently on probabilistic models for selective protein binder design. 
+              This summer I am an SDE Intern at Amazon Web Services on AWS Transform, building model-comparison infrastructure for an LLM-based migration orchestrator.
+              In research, I work with Prof. Kaiming He on pixel-space generative models (MiniT2I / image editing, LoRA adaptation, and GCS dataset pipelines), and with Prof. Regina Barzilay at MIT CSAIL on cell-state prediction and probabilistic models for selective protein binder design. My first-authored work ProtQueSt was accepted as a Spotlight at the ICML 2026 GenBio workshop and as a poster at FM4LS.
             </p>
           </motion.div>
 
@@ -89,7 +87,7 @@ export default function AboutSection() {
             <div className="bg-neutral-50 dark:bg-[#111118] rounded-lg px-5 py-4">
               <h4 className="font-medium text-neutral-900 dark:text-white text-sm mb-2">Technical Skills</h4>
               <div className="flex flex-wrap gap-2">
-                {['Python', 'PyTorch', 'C/C++', 'Transformers', 'JAX', 'LaTeX', 'Linux', 'Git'].map((item) => (
+                {['Python', 'TypeScript', 'PyTorch', 'C/C++', 'Transformers', 'JAX', 'LaTeX', 'Linux', 'Git'].map((item) => (
                   <span key={item} className="px-3 py-1 bg-white dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 text-xs rounded-full shadow-sm">
                     {item}
                   </span>

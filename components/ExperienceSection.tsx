@@ -17,21 +17,34 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 0,
+    title: 'Software Development Engineer Intern',
+    company: 'Amazon Web Services — AWS Transform',
+    location: 'Boston, MA',
+    period: 'Jun 2026 - Present',
+    description: [
+      'Building model-comparison infrastructure for the LLM-based orchestrator behind AWS Transform\'s VMware migration workflows (Strands + Amazon Bedrock)',
+      'Designing automated evaluation scenarios and CloudWatch metrics across latency/cost, tool-calling, and reliability for data-driven model selection',
+      'Implementing the pipeline in Python and TypeScript; owning the feature end-to-end under SDE I mentorship',
+    ],
+    technologies: ['Python', 'TypeScript', 'Amazon Bedrock', 'CloudWatch', 'AWS'],
+    type: 'work',
+  },
+  {
+    id: 1,
     title: 'Undergraduate Researcher',
     company: 'MIT — Prof. Kaiming He\'s Group',
     location: 'Cambridge, MA',
     period: 'Feb 2026 - Present',
     description: [
-      'Adapting the "Just Image Transformers" (JiT) framework for text-guided image editing in raw pixel space',
-      'Integrating a pre-trained T5 encoder with cross-attention applied directly to pixel-space tokens',
-      'Bypassing latent bottlenecks (VAEs) to achieve high-fidelity editing that preserves fine-grained image details',
-      'Collaboratively designing experiments, fine-tuning the model, and evaluating outputs against relevant baselines',
+      'Working on pixel-space generative models in the MiniT2I line under Prof. Kaiming He, including adapting the framework toward image editing and contributing LoRA-based downstream adaptation',
+      'Built a large-scale image-editing dataset pipeline to Google Cloud Storage',
+      'Diagnosed OOM failures on ~300GB tarballs and redesigned the flow with streaming shard extraction for reliable full-dataset upload',
     ],
-    technologies: ['PyTorch', 'Transformers', 'Diffusion Models', 'Computer Vision', 'T5'],
+    technologies: ['PyTorch', 'LoRA', 'GCS', 'Computer Vision', 'Diffusion Models'],
     type: 'work',
   },
   {
-    id: 1,
+    id: 2,
     title: 'Undergraduate Researcher',
     company: 'MIT Computer Science and Artificial Intelligence Lab (CSAIL)',
     location: 'Cambridge, MA',
@@ -46,7 +59,7 @@ const experiences: Experience[] = [
     type: 'work',
   },
   {
-    id: 2,
+    id: 3,
     title: 'B.E. in AI & Decision Making + B.S. in Chemistry (Double Major)',
     company: 'Massachusetts Institute of Technology (MIT)',
     location: 'Cambridge, MA',
@@ -60,7 +73,7 @@ const experiences: Experience[] = [
     type: 'education',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Undergraduate Student - Yao Class',
     company: 'Tsinghua University',
     location: 'Beijing, China',
