@@ -17,6 +17,39 @@ interface Publication {
 const publications: Publication[] = [
   {
     id: 1,
+    title: 'Specificity-Aware Diffusion Steering via Variance-Reduced Sequential Monte Carlo',
+    venue: 'NeurIPS 2026',
+    authors: (
+      <>
+        Luran Wang<sup>*</sup>, Linrui Ma<sup>*</sup>, Hannes Stärk, Regina Barzilay
+      </>
+    ),
+    footnote: '* Shared first authorship (arXiv listing pending update).',
+    acceptance: 'NeurIPS 2026 (Poster).',
+    links: [
+      { label: 'arXiv', url: 'https://arxiv.org/abs/2610.00395' },
+      { label: 'Code', url: 'https://github.com/WangLuran/Specificity-Aware-Diffusion-Steering' },
+    ],
+    description:
+      'Inference-time diffusion steering that suppresses undesired modes while preserving the desired distribution via a specificity-aware target and variance-reduced Sequential Monte Carlo; evaluated on text-to-image generation and peptide-MHC binder design.',
+  },
+  {
+    id: 2,
+    title: 'VGI-Bench: Probing Visual Intelligence in Video Generation Models',
+    venue: 'EMNLP 2026',
+    authors: <>Xuan He, Cong Wei, Yuhao Cheng, Linrui Ma, et al.</>,
+    acceptance: 'EMNLP 2026 (Main Conference). Main contributor (4th author).',
+    links: [
+      { label: 'arXiv', url: 'https://arxiv.org/abs/2608.19583' },
+      { label: 'Website', url: 'https://hexuan21.github.io/VGI-Bench/' },
+      { label: 'Code', url: 'https://github.com/hexuan21/VGI-Bench' },
+      { label: 'Data', url: 'https://huggingface.co/datasets/hexuan21/VGI-Bench' },
+    ],
+    description:
+      'Benchmark of 27 tasks and 810 instances for visual reasoning in video generation models, organized by a two-level taxonomy of task domains and skill tags. Current generative systems remain far from reliable: even Seedance 2.0 reaches only 51.0% under the evaluation criteria.',
+  },
+  {
+    id: 3,
     title: 'ProtQueSt: Query-Conditioned Retrieval-Augmented Generation for Protein Function Annotation',
     venue: 'ICML 2026',
     authors: (
@@ -31,7 +64,7 @@ const publications: Publication[] = [
       'First-authored RAG framework that pairs structure-aware retrieval with a query-conditioned contrastive retriever (FiLM + query-pooled negatives), reframing protein function annotation as query-dependent sequence understanding; Entity-BLEU 48.79 (+37% vs RAPM) on Prot-Inst-OOD.',
   },
   {
-    id: 2,
+    id: 4,
     title: 'MiniT2I: A Minimalist Baseline for Text-to-Image Generation',
     venue: 'Technical Blog, 2026',
     authors: (
@@ -66,7 +99,7 @@ export default function PublicationsSection() {
         </h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {publications.map((pub, index) => (
           <motion.div
             key={pub.id}
