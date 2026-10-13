@@ -1,0 +1,7 @@
+violin/ and cello/ samples: from tonejs-instruments by Nicholaus P. Brosowsky,
+https://github.com/nbrosowsky/tonejs-instruments, licensed CC BY 3.0
+(https://creativecommons.org/licenses/by/3.0/). File names use scientific pitch (A4 = 440 Hz).
+
+bass/ samples: tonejs-instruments "bass-electric" (same source and CC BY 3.0 license as above).
+drums/ samples: Tone.js example "acoustic-kit" from https://tonejs.github.io/audio/drum-samples/
+(used for in-app preview only). Cymbals, open hi-hat, cross-stick and tambourine are synthesized.

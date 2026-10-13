@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arranger</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23b5562b%22/%3E%3Cpath d=%22M8 8v16M14 8v16M20 8v16M26 8v16%22 stroke=%22%23fff%22 stroke-width=%223%22/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="/arranger/assets/index-Cs_p2BlZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/arranger/assets/index-C7g3zf3K.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <h1>Arranger</h1>
+        <div class="segmented pages" id="pages" role="tablist" aria-label="Page">
+          <button type="button" role="tab" data-page="piano">Piano</button><button type="button" role="tab" data-page="strings">Strings</button><button type="button" role="tab" data-page="band">Bass &amp; Drums</button>
+        </div>
+      </div>
+      <div class="transport">
+        <button id="play" class="primary" type="button" title="Play / Stop (Space)">▶ Play</button>
+        <button id="save" type="button" title="Download a .mid file for GarageBand">⬇ Save MIDI</button>
+        <span id="audio-status" class="muted"></span>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel input-panel">
+        <label for="chart" class="field-label">Chord chart</label>
+        <div class="editor">
+          <div class="editor-backdrop" aria-hidden="true"><div id="highlights"></div></div>
+          <textarea id="chart" rows="7" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+        </div>
+        <ul id="errors" class="errors"></ul>
+
+        <div class="feel" data-for="piano">
+          <div class="feel-row">
+            <span class="field-label">Feel</span>
+            <div class="segmented" id="feels" role="radiogroup" aria-label="Feel"></div>
+            <span id="feel-custom" class="custom-badge" hidden>Custom</span>
+          </div>
+          <div class="settings">
+            <label title="Used where a section or chord doesn't pick its own (e.g. [Chorus @arp] or C@block)">Pattern <select id="pattern"></select></label>
+            <label>Touch <select id="touch"></select></label>
+            <label title="How fast patterns move against the beat. 1× = arpeggios in eighth notes">Note speed
+              <span class="segmented small" id="speed" role="radiogroup" aria-label="Note speed">
+                <button type="button" role="radio" data-speed="0.5">½×</button><button type="button" role="radio" data-speed="1">1×</button><button type="button" role="radio" data-speed="2">2×</button>
+              </span>
+            </label>
+            <label title="Moves the left hand up to C2–B2 as one note or an open fifth, so it doesn't muddy a bass part"><input type="checkbox" id="light-lh" /> Lighter left hand (for use with bass)</label>
+          </div>
+          <p id="pattern-desc" class="preset-desc"></p>
+          <p id="instruments" class="preset-instruments"></p>
+        </div>
+
+        <div class="feel" data-for="strings" hidden>
+          <div class="feel-row">
+            <span class="field-label">Texture</span>
+            <div class="segmented" id="textures" role="radiogroup" aria-label="String texture"></div>
+          </div>
+          <div class="settings">
+            <label title="Cellos hold each bass note, then step into the next one"><input type="checkbox" id="walk" /> Cello walk</label>
+          </div>
+          <p id="texture-desc" class="preset-desc"></p>
+          <p class="preset-instruments">In GarageBand: put a strings sound on each track (Library → Strings), the same ensemble on all four, or violin sounds on the top two and a cello sound on Cellos.</p>
+        </div>
+
+        <div class="feel" data-for="band" hidden>
+          <div class="feel-row">
+            <span class="field-label">Style</span>
+            <div class="segmented" id="band-style" role="radiogroup" aria-label="Style"></div>
+          </div>
+          <div class="settings">
+            <label>Frequency <span class="segmented small" id="band-density" role="radiogroup" aria-label="Frequency"></span></label>
+            <label>Strength <span class="segmented small" id="band-strength" role="radiogroup" aria-label="Strength"></span></label>
+            <label title="Who carries the syncopation: the drums (bass simplifies), both, or the bass (kick simplifies)">Lead <span class="segmented small" id="band-lead" role="radiogroup" aria-label="Lead"></span></label>
+            <button type="button" id="band-variation" class="small-btn" title="Different fills (the groove stays the same)">New variation</button>
+          </div>
+          <p id="band-desc" class="preset-desc"></p>
+          <p class="preset-instruments">In GarageBand: a bass sound on the Bass track (Library → Bass) and a kit on the Drums track (Library → Drum Kit). For a fuller band, try the lighter left hand on the Piano page.</p>
+        </div>
+
+        <div class="settings">
+          <label title="Chords without a written length last this many beats">Beats per chord <input id="defaultBeats" type="number" min="0.25" max="64" step="1" /></label>
+          <label>Key <select id="key"></select></label>
+          <label>Tempo <input id="tempo" type="number" min="30" max="240" step="any" /> <span class="unit">bpm</span>
+            <button type="button" id="use-tempo" class="link" hidden></button></label>
+          <label>Time
+            <select id="beatsPerBar"><option value="4">4/4</option><option value="3">3/4</option></select>
+          </label>
+          <label>Loops <input id="loops" type="number" min="1" max="16" step="1" /></label>
+        </div>
+        <p id="summary" class="muted"></p>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="preview-head">
+          <div class="legend" id="legend"></div>
+          <div class="play-with" id="play-with"></div>
+        </div>
+        <div class="scroller" id="scroller">
+          <div class="scroll-content" id="scroll-content">
+            <div class="sections" id="sections"></div>
+            <div class="timeline" id="timeline"></div>
+            <canvas id="roll"></canvas>
+            <canvas id="drum-lane" hidden></canvas>
+            <div class="playhead" id="playhead" hidden></div>
+          </div>
+        </div>
+        <p class="muted hint" id="preview-hint"></p>
+      </section>
+
+      <section class="panel help">
+        <details open>
+          <summary>Using it in GarageBand</summary>
+          <ol>
+            <li>Set the GarageBand project tempo to <strong id="gb-tempo">72</strong> bpm and the time signature to <strong id="gb-time">4/4</strong>. Do this first: GarageBand keeps its own tempo.</li>
+            <li>Click <em>Save MIDI</em>, then drag the <code>.mid</code> file from Finder into the empty grey area below the existing tracks. Each page saves its own part: piano, strings, or bass &amp; drums. Drop each file at bar 1 and they line up.</li>
+            <li>Each part arrives as its own track (Left hand, Right hand · Violins I, Violins II, Violas, Cellos · Bass, Drums). Pick a sound for each one in the Library. A MIDI file can't choose the instrument (see the suggestion on each page).</li>
+            <li>The sustain pedal comes through on both hand tracks; the strings carry expression swells (CC11). If notes ring too long, try another patch or lower the track's sustain in the Smart Controls.</li>
+          </ol>
+        </details>
+        <details>
+          <summary>Chart syntax</summary>
+          <ul class="syntax">
+            <li><code>Asus2 E/G# F#m7 | Dadd9</code> separate chords with spaces, <code>|</code>, commas or new lines.</li>
+            <li><code>Bm7 4</code> or <code>E 1</code> or <code>G 1/2</code> sets a length in beats; otherwise the default (Beats per chord) applies.</li>
+            <li><code>N.C.</code> or <code>rest</code> is silence for the default length; <code>rest 4</code> rests for four beats. <code>%</code> repeats the previous chord.</li>
+            <li><code>[Verse]</code> on its own line starts a section. Repeating a label with no chords under it plays that section again.</li>
+            <li><code>Verse Verse Chorus</code> on its own line, or <code>Structure: Intro Verse x2 Chorus</code>, sets the order.</li>
+            <li><code>// comment</code> is ignored.</li>
+            <li>Qualities: m dim aug + sus2 sus4 5 6 m6 7 maj7 M7 m7 mMaj7 m7b5 ø dim7 7sus4 add9 madd9 add11 madd11 9 maj9 m9 11 13 7b9 7#9. Slash chords: <code>A/C#</code>.</li>
+            <li><code>[Chorus @arp]</code> gives a section its own pattern; <code>C#m7@block</code> changes one chord; a lone <code>@pulse</code> switches the rest of the section. Patterns: <code>@block @block2 @roll @broken @arp @pulse</code> (<code>@block2</code> strikes each chord twice).</li>
+            <li><code>Asus2^B</code> puts B on top of the right hand; <code>Asus2^B4</code> picks the exact note.</li>
+            <li><code>Asus2_A1</code> sets the left hand: bass A1 plus its octave. <code>_A1+5</code> adds the fifth instead, <code>_A1-</code> plays the single note. Tags combine: <code>Esus4_E1+5^A@arp</code>.</li>
+            <li>Strings: <code>[Chorus ~rise ~walk]</code> gives a section its string texture (<code>~pad ~counter ~rise ~fall</code>) and the cello walk; a lone <code>~fall</code> switches the rest of the section. Piano and string tags can share a label: <code>[Verse @roll ~counter]</code>.</li>
+            <li>Bass &amp; drums: <code>[Chorus !crash !busy !strong]</code>. Moments: <code>!crash</code> (start), <code>!fill</code>, <code>!build</code>, <code>!stop</code> (end), <code>!out</code> (no band). Settings: <code>!sparse !normal !busy</code>, <code>!soft !medium !strong</code>, <code>!pop !ballad !rock !rnb !soul !funk</code>. In a line, <code>C G !fill Am</code> fills into Am.</li>
+            <li>Note names follow GarageBand: middle C is C3.</li>
+          </ul>
+        </details>
+      </section>
+    </main>
+    <footer class="credits muted">
+      Arranger · Sounds: Salamander Grand Piano (Alexander Holm, CC BY 3.0) · violin, cello and bass from
+      <a href="https://github.com/nbrosowsky/tonejs-instruments">tonejs-instruments</a> (CC BY 3.0) · drums from the
+      <a href="https://tonejs.github.io">Tone.js</a> examples. Playback here is a preview; the MIDI files take GarageBand's sounds.
+    </footer>
+  </body>
+</html>
