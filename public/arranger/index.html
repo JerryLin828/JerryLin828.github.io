@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arranger</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23b5562b%22/%3E%3Cpath d=%22M8 8v16M14 8v16M20 8v16M26 8v16%22 stroke=%22%23fff%22 stroke-width=%223%22/%3E%3C/svg%3E" />
-    <script type="module" crossorigin src="/arranger/assets/index-Cs_p2BlZ.js"></script>
-    <link rel="stylesheet" crossorigin href="/arranger/assets/index-C7g3zf3K.css">
+    <script type="module" crossorigin src="/arranger/assets/index-BmUpWlWT.js"></script>
+    <link rel="stylesheet" crossorigin href="/arranger/assets/index-CL9oocoj.css">
   </head>
   <body>
     <header class="topbar">
@@ -46,7 +46,8 @@
                 <button type="button" role="radio" data-speed="0.5">½×</button><button type="button" role="radio" data-speed="1">1×</button><button type="button" role="radio" data-speed="2">2×</button>
               </span>
             </label>
-            <label title="Moves the left hand up to C2–B2 as one note or an open fifth, so it doesn't muddy a bass part"><input type="checkbox" id="light-lh" /> Lighter left hand (for use with bass)</label>
+            <label title="Lighter moves the left hand up to C2–B2 as one note or an open fifth, so it doesn't muddy a bass part. A section can choose its own: [Chorus @light] or [Verse @full]">Left hand
+              <select id="left-hand"><option value="full">Full (low octaves)</option><option value="light">Lighter</option><option value="withBass">Lighter where the bass plays</option></select></label>
           </div>
           <p id="pattern-desc" class="preset-desc"></p>
           <p id="instruments" class="preset-instruments"></p>
@@ -75,17 +76,30 @@
             <label title="Who carries the syncopation: the drums (bass simplifies), both, or the bass (kick simplifies)">Lead <span class="segmented small" id="band-lead" role="radiogroup" aria-label="Lead"></span></label>
             <button type="button" id="band-variation" class="small-btn" title="Different fills (the groove stays the same)">New variation</button>
           </div>
+          <div class="settings">
+            <label title="Backbeat: snare on 2 and 4 · Half-time: snare on 3 · Four on the floor: kick on every beat">Feel <span class="segmented small" id="band-feel" role="radiogroup" aria-label="Feel"></span></label>
+            <label title="What keeps time">Cymbal <span class="segmented small" id="band-cymbal" role="radiogroup" aria-label="Cymbal"></span></label>
+            <span class="layers">Layers
+              <label><input type="checkbox" data-layer="clap" /> Clap</label>
+              <label><input type="checkbox" data-layer="tamb" /> Tambourine</label>
+              <label><input type="checkbox" data-layer="shaker" /> Shaker</label>
+            </span>
+          </div>
           <p id="band-desc" class="preset-desc"></p>
-          <p class="preset-instruments">In GarageBand: a bass sound on the Bass track (Library → Bass) and a kit on the Drums track (Library → Drum Kit). For a fuller band, try the lighter left hand on the Piano page.</p>
+          <p class="preset-instruments">In GarageBand: a bass sound on the Bass track (Library → Bass) and a kit on the Drums track (Library → Drum Kit). For a fuller band, set the Piano page's left hand to “Lighter where the bass plays”.</p>
         </div>
 
         <div class="settings">
           <label title="Chords without a written length last this many beats">Beats per chord <input id="defaultBeats" type="number" min="0.25" max="64" step="1" /></label>
           <label>Key <select id="key"></select></label>
+          <span class="change-key" title="Rewrite the chart in another key; the arrangement follows">
+            <select id="change-key" aria-label="Change key"></select>
+            <button type="button" class="small-btn" id="key-down" title="Down a semitone">−1</button><button type="button" class="small-btn" id="key-up" title="Up a semitone">+1</button>
+          </span>
           <label>Tempo <input id="tempo" type="number" min="30" max="240" step="any" /> <span class="unit">bpm</span>
             <button type="button" id="use-tempo" class="link" hidden></button></label>
           <label>Time
-            <select id="beatsPerBar"><option value="4">4/4</option><option value="3">3/4</option></select>
+            <select id="beatsPerBar"><option value="4/4">4/4</option><option value="3/4">3/4</option><option value="6/8">6/8</option></select>
           </label>
           <label>Loops <input id="loops" type="number" min="1" max="16" step="1" /></label>
         </div>
@@ -124,16 +138,23 @@
           <ul class="syntax">
             <li><code>Asus2 E/G# F#m7 | Dadd9</code> separate chords with spaces, <code>|</code>, commas or new lines.</li>
             <li><code>Bm7 4</code> or <code>E 1</code> or <code>G 1/2</code> sets a length in beats; otherwise the default (Beats per chord) applies.</li>
+            <li><code>Em-F#m</code> splits one chord's time between two chords (1 beat each by default); <code>Em-F#m 4</code> gives the pair 4 beats, <code>A-B-C#m</code> splits in three. Each part can have its own tags. With Block ×2, each part gets one block.</li>
             <li><code>N.C.</code> or <code>rest</code> is silence for the default length; <code>rest 4</code> rests for four beats. <code>%</code> repeats the previous chord.</li>
             <li><code>[Verse]</code> on its own line starts a section. Repeating a label with no chords under it plays that section again.</li>
             <li><code>Verse Verse Chorus</code> on its own line, or <code>Structure: Intro Verse x2 Chorus</code>, sets the order.</li>
+            <li><code>[Verse 2 = Verse]</code> plays Verse's chords and tags (fills, hits and all) under its own name. Tags on the copy win: <code>[Verse 2 = Verse @arp !nohit]</code>. A section played again by name always sounds the same; a copy is how you make it differ.</li>
+            <li><code>+</code> builds a section one step further than what it's based on (the section it copies, or the song settings); <code>++</code> two steps. The piano moves more (Block → Block ×2 → Broken → Arpeggio, Roll → Broken) and sits higher; a held string pad becomes a counter-line and violin lines move up an octave; the band goes up a frequency (at Busy, a tambourine joins) and opens with a crash. Tags on the section win: <code>[Chorus 2 = Chorus + @block2]</code> keeps Block ×2, and a tagged frequency keeps the band as it is.</li>
+            <li>Changing one chord inside a copy (from its chord picker) first writes the copy's chords out under its label, so the original stays as it is. "Write out chords" in the section picker does the same by hand.</li>
             <li><code>// comment</code> is ignored.</li>
             <li>Qualities: m dim aug + sus2 sus4 5 6 m6 7 maj7 M7 m7 mMaj7 m7b5 ø dim7 7sus4 add9 madd9 add11 madd11 9 maj9 m9 11 13 7b9 7#9. Slash chords: <code>A/C#</code>.</li>
+            <li>Leave an instrument out of a section: <code>@out</code> (piano), <code>~out</code> (strings), <code>!out</code> / <code>!nodrums</code> / <code>!nobass</code>.</li>
             <li><code>[Chorus @arp]</code> gives a section its own pattern; <code>C#m7@block</code> changes one chord; a lone <code>@pulse</code> switches the rest of the section. Patterns: <code>@block @block2 @roll @broken @arp @pulse</code> (<code>@block2</code> strikes each chord twice).</li>
+            <li>Left hand per section: <code>[Chorus @light]</code> (one note or an open fifth, for use with bass) or <code>[Verse @full]</code> (low octaves); otherwise the Left hand setting applies. A lone <code>@light</code> changes the rest of the section.</li>
             <li><code>Asus2^B</code> puts B on top of the right hand; <code>Asus2^B4</code> picks the exact note.</li>
             <li><code>Asus2_A1</code> sets the left hand: bass A1 plus its octave. <code>_A1+5</code> adds the fifth instead, <code>_A1-</code> plays the single note. Tags combine: <code>Esus4_E1+5^A@arp</code>.</li>
             <li>Strings: <code>[Chorus ~rise ~walk]</code> gives a section its string texture (<code>~pad ~counter ~rise ~fall</code>) and the cello walk; a lone <code>~fall</code> switches the rest of the section. Piano and string tags can share a label: <code>[Verse @roll ~counter]</code>.</li>
-            <li>Bass &amp; drums: <code>[Chorus !crash !busy !strong]</code>. Moments: <code>!crash</code> (start), <code>!fill</code>, <code>!build</code>, <code>!stop</code> (end), <code>!out</code> (no band). Settings: <code>!sparse !normal !busy</code>, <code>!soft !medium !strong</code>, <code>!pop !ballad !rock !rnb !soul !funk</code>. In a line, <code>C G !fill Am</code> fills into Am.</li>
+            <li>Bass &amp; drums: <code>[Chorus !crash !busy !strong]</code>. Starts: <code>!crash</code>, <code>!hit</code> (big unison accent), <code>!hits</code> (three strikes, then the groove), <code>!pickup</code> (snare pickup). Ends: <code>!fill</code>, <code>!build</code>, <code>!stop</code>, <code>!endhits</code> (strikes on the last beats). Leave out: <code>!out</code>, <code>!nodrums</code>, <code>!nobass</code>. Feel: <code>!half</code>, <code>!four</code>, <code>!backbeat</code>. Cymbal: <code>!hats</code>, <code>!ride</code>, <code>!openhats</code>. Layers: <code>!clap</code>, <code>!tamb</code>, <code>!shaker</code> (<code>!noclap</code>… to turn off). Settings: <code>!sparse !normal !busy</code>, <code>!soft !medium !strong</code>, <code>!pop !ballad !rock !rnb !soul !funk</code>. In a line, <code>C G !fill Am</code> fills into Am.</li>
+            <li>Change key with the menu or −1/+1 next to Key: the chart is rewritten in the new key (tags and pinned notes move too). To change key for one section, use Key −1/+1 in its section picker; for "last chorus up a step", give it its own label like <code>[Chorus 2 = Chorus]</code> and use its Key +1 (its chords are written out first).</li>
             <li>Note names follow GarageBand: middle C is C3.</li>
           </ul>
         </details>
