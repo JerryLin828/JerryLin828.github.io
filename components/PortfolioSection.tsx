@@ -28,12 +28,6 @@ const projects: Project[] = [
     description: 'Built an AI agent that turns experiment PDFs and CSV data into structured LaTeX lab reports using VLMs and chat models, with a Web UI for one-click PDF/LaTeX export.',
     githubUrl: 'https://github.com/Kehan-Liu/LABOTEX',
   },
-  {
-    id: 4,
-    title: 'High-Performance Matrix Multiplication with Multithreading & Distributed RPC',
-    description: 'Implemented a high-performance matrix multiplication system in C with cache blocking, SIMD, multithreading, and cross-machine RPC; benchmarked for accuracy and speed.',
-    githubUrl: '',
-  },
 ]
 
 export default function PortfolioSection() {

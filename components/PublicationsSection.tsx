@@ -19,12 +19,7 @@ const publications: Publication[] = [
     id: 1,
     title: 'Specificity-Aware Diffusion Steering via Variance-Reduced Sequential Monte Carlo',
     venue: 'NeurIPS 2026',
-    authors: (
-      <>
-        Luran Wang<sup>*</sup>, Linrui Ma<sup>*</sup>, Hannes Stärk, Regina Barzilay
-      </>
-    ),
-    footnote: '* Shared first authorship (arXiv listing pending update).',
+    authors: <>Luran Wang, Linrui Ma, Hannes Stärk, Regina Barzilay</>,
     acceptance: 'NeurIPS 2026 (Poster).',
     links: [
       { label: 'arXiv', url: 'https://arxiv.org/abs/2610.00395' },
@@ -37,8 +32,13 @@ const publications: Publication[] = [
     id: 2,
     title: 'VGI-Bench: Probing Visual Intelligence in Video Generation Models',
     venue: 'EMNLP 2026',
-    authors: <>Xuan He, Cong Wei, Yuhao Cheng, Linrui Ma, et al.</>,
-    acceptance: 'EMNLP 2026 (Main Conference). Main contributor (4th author).',
+    authors: (
+      <>
+        Xuan He<sup>†§</sup>, Cong Wei<sup>†</sup>, Yuhao Cheng<sup>†</sup>, Linrui Ma<sup>†</sup>, Yuxuan Zhang<sup>†</sup>, et al.
+      </>
+    ),
+    footnote: '(† main contributor; § project lead)',
+    acceptance: 'EMNLP 2026 (Main Conference).',
     links: [
       { label: 'arXiv', url: 'https://arxiv.org/abs/2608.19583' },
       { label: 'Website', url: 'https://hexuan21.github.io/VGI-Bench/' },
@@ -51,7 +51,7 @@ const publications: Publication[] = [
   {
     id: 3,
     title: 'ProtQueSt: Query-Conditioned Retrieval-Augmented Generation for Protein Function Annotation',
-    venue: 'ICML 2026',
+    venue: 'ICML 2026 Workshops',
     authors: (
       <>
         Linrui Ma<sup>*</sup>, Yiwei Liang<sup>*</sup>, Yishu Yu<sup>**</sup>, Chuhan Joyce Qi<sup>**</sup>
@@ -61,7 +61,7 @@ const publications: Publication[] = [
     acceptance: 'ICML 2026 GenBio Workshop (Spotlight); ICML 2026 FM4LS Workshop (Poster).',
     links: [{ label: 'Link to paper', url: 'https://openreview.net/forum?id=zUqknDsV1t' }],
     description:
-      'First-authored RAG framework that pairs structure-aware retrieval with a query-conditioned contrastive retriever (FiLM + query-pooled negatives), reframing protein function annotation as query-dependent sequence understanding; Entity-BLEU 48.79 (+37% vs RAPM) on Prot-Inst-OOD.',
+      'Co-first-authored RAG framework that pairs structure-aware retrieval with a query-conditioned contrastive retriever (FiLM + query-pooled negatives), reframing protein function annotation as query-dependent sequence understanding; Entity-BLEU 48.79 (+37% vs RAPM) on Prot-Inst-OOD.',
   },
   {
     id: 4,

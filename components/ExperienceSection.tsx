@@ -36,7 +36,7 @@ const experiences: Experience[] = [
     location: 'Cambridge, MA',
     period: 'Feb 2026 - Jun 2026',
     description: [
-      'Working on pixel-space generative models in the MiniT2I line under Prof. Kaiming He, including adapting the framework toward image editing and contributing LoRA-based downstream adaptation',
+      'Worked on pixel-space generative models in the MiniT2I line under Prof. Kaiming He, adapting the framework toward image editing and contributing LoRA-based downstream adaptation',
       'Built a large-scale image-editing dataset pipeline to Google Cloud Storage',
       'Diagnosed OOM failures on ~300GB tarballs and redesigned the flow with streaming shard extraction for reliable full-dataset upload',
     ],
@@ -60,16 +60,16 @@ const experiences: Experience[] = [
   },
   {
     id: 3,
-    title: 'B.E. in AI & Decision Making + B.S. in Chemistry (Double Major)',
+    title: 'S.B. in AI & Decision Making and Chemistry (Double Major)',
     company: 'Massachusetts Institute of Technology (MIT)',
     location: 'Cambridge, MA',
-    period: 'Aug 2025 - Present',
+    period: 'Aug 2025 - Expected May 2028',
     description: [
       'GPA: 5.0/5.0',
-      'Core Courses: Deep Learning; Algorithms; AI & Decision Making in Medicine; Biological Chemistry',
+      'Core Courses: Deep Learning; Multimodal AI; Symmetry and its Application to Machine Learning; Representation, Reasoning, and Inference in AI; Algorithms; AI & Decision Making in Medicine',
       'Pursuing interdisciplinary education at the intersection of AI and chemistry',
     ],
-    technologies: ['Deep Learning', 'Algorithms', 'AI in Medicine', 'Biological Chemistry'],
+    technologies: ['Deep Learning', 'Multimodal AI', 'Algorithms', 'AI in Medicine'],
     type: 'education',
   },
   {
